@@ -1,13 +1,640 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;700&family=Roboto:wght@700&display=swap');
+
+:root{
+    --colorMain: #274d85;
+    --primary: #6D58FF;
+    --grey-dark: #404660;
+    --grey: #8A91B4;
+    --white: #FFFFFF;
+    --blue: #2e7cc5;
+    --danger:#ff5650;
+    --background:#eeecec;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
 }
+
+.App {
+    position: relative;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 2.2rem;
+    color: var(--colorMain);
+    font-family:'Roboto';
+    text-transform: capitalize;
+    margin: 0;
+}
+
+body {
+    margin: 0px;
+    background-color: var(--background);
+}
+
+main {
+    min-height: 88vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+li {
+    padding-left: 0;
+    list-style: none;
+}
+
+textarea {
+    resize: none;
+}
+
+input {
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.background {
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+    z-index: -1;
+    overflow: hidden;
+    height: auto;
+    width: 100%;
+    background-color: var(--background);
+}
+  
+.background img {
+    height: 100%;
+}
+
+footer {
+    color: var(--white);
+    height: 5vh;
+}
+
+footer p {
+    margin: 0;
+}
+
+/*----------------------------------------------------------
+------------------------------------------------------------
+                    Navbar
+------------------------------------------------------------
+-----------------------------------------------------------*/
+
+.navbar {
+    height: 7vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--colorMain);
+}
+
+.logo {
+  width: 2rem;
+
+}
+
+.nav-menu {
+    color: var(--white);
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+.nav-menu-hidden {
+    display: none;
+}
+
+.nav-item {
+    margin-right: 2%;
+    list-style-type: none;
+}
+
+/* .nav-item:last-child {
+    margin-right: 0%;
+    margin-left: 4%;
+
+} */
+
+.nav-links {
+    color: var(--white);
+    text-decoration:none;
+}
+
+.nav-links:hover {
+    color: #b6cbcc;
+}
+
+.dropdown-menu {
+    background: var(--colorMain);
+    display: flex;
+    padding: 1% 1.5%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    position: absolute;
+    list-style: none;
+    right: 1%;
+}
+
+.dropdown-link {
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+    margin: 16% 0;
+    
+}
+
+.dropdown-link:hover, .menu-item:hover {
+    color: #dce2f1;
+}
+
+.menu-item{
+    color: var(--white);
+    text-decoration: none;
+}
+
+/*----------------------------------------------------------
+------------------------------------------------------------
+                    LOGIN 
+------------------------------------------------------------
+-----------------------------------------------------------*/
+
+.formLogin {
+    width: 20%;
+    display: flex;
+    background-color: var(--white);
+    flex-direction: column;
+    margin-top: 10%;
+    height: fit-content;
+    padding: 2rem;
+    border-radius: 4px;
+}
+
+.formLogin .input { 
+    position: relative;
+}
+
+.formLogin .input input {
+    width: 100%;
+    border-radius: 0;
+    -webkit-appearance: none;
+}
+
+.formLogin .input.email {
+    margin-bottom: 16px;
+}
+
+.formLogin input {
+    background: none;
+    outline: none;
+    border: none;
+    color: var(--grey-dark);
+    font-weight: 500;
+    font-family: inherit;
+    font-size: 13px;
+    letter-spacing: 0.025em;
+    line-height: 22px;
+    caret-color: var(--primary);
+    box-shadow: inset 0 -1px 0 0 var(--grey);
+}
+
+.formLogin .input.password {
+    height: 64px;
+}
+
+.buttonLogin {
+    border: none;
+    padding: 1.5% 0;
+    margin-top: 2%;
+    border-radius: 4px;
+    color: var(--white);
+    width: 100%;
+    font-size: 0.9rem;
+    line-height: 16px;
+    background: var(--colorMain);
+    cursor: pointer;
+}
+
+
+/*----------------------------------------------------------
+------------------------------------------------------------
+                    Tablas 
+------------------------------------------------------------
+-----------------------------------------------------------*/
+
+.historialDiv {
+    width: 40%;
+    height: fit-content;
+    background-color: var(--white);
+    margin: auto;
+    border-radius: 6px;
+    padding-bottom: 2rem;
+}
+
+.historialDiv ul {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.historialDiv ul li {
+    width: 50%;
+    margin-top: 2rem;
+}
+
+.historialDiv h1 {
+    margin-top: 2rem;
+}
+
+.flexTables {
+  width: 75%;
+}
+
+.tabla-princ {
+    background-color: var(--white);
+    width: 100%;
+    margin: 2rem auto;
+    border-collapse:collapse;
+    border-radius: 5px;
+    
+    
+}
+
+.tabla-princ td {
+    text-align: center;
+}
+
+.tabla-princ thead {
+    background-color: var(--colorMain);
+    color: var(--white);
+    
+}
+
+.tabla-princ thead td, .tabla-princ thead th  {
+    padding: 1% 0;
+}
+.tabla-princ thead th{
+    padding-left: 1%;
+}
+
+.tabla-princ tbody td{
+    padding: 1.5% 0 1.5% 1%;
+}
+
+.tabla-princ tr:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+}
+
+.tabla-princ tbody tr:hover {
+    background-color: #dce2f1;
+}
+
+.filtrador {
+    width: 16rem;
+    background: none;
+    outline: none;
+    border: none;
+    color: var(--grey-dark);
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.025em;
+    padding: 7px 0 5px 0;
+    box-shadow: inset 0 -1px 0 0 var(--colorMain);
+}
+
+.div-title {
+    margin-top: 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.addFilt  {
+    display: flex;
+}
+
+.addFilt  input {
+    margin-right: 4rem;
+}
+
+.nav-icon {
+    cursor: pointer;
+    color: var(--blue);
+}
+
+.nav-icon-delete {
+    color: var(--danger);
+    cursor: pointer;
+}
+
+.historial-link {
+    color:var(--primary);
+    text-decoration: none;
+}
+
+.paginateButton, .addButton {
+    border: none;
+    padding: 0.8% 0;
+    border-radius: 4px;
+    color: var(--white);
+    width: 6rem;
+    font-size: 0.9rem;
+    line-height: 16px;
+    background: var(--colorMain);
+    cursor: pointer;
+    margin-right: 2rem;
+    font-family: 'Roboto';
+}
+
+.addButton {
+    margin-right: 0% ;
+}
+
+.addButton a { 
+    font-family: 'Roboto';
+}
+
+
+/*
+	Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
+	*/
+@media only screen 
+and (max-width: 1080px) { 
+    .flexTables {
+        width: 90%;
+    }
+}
+
+@media only screen 
+and (max-width: 890px) {
+
+    .flexTables {
+        width: 75%;
+    }
+    /* Force table to not be like tables anymore */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        margin: 0 0 0.5rem 0;
+    }
+
+    tabla-princ tbody tr:hover {
+        background-color: var(--colorMain);
+    }
+
+    .tabla-princ {
+        border-radius: 6px;
+    }
+
+    .tabla-princ tbody tr {
+        margin: 0;
+    }
+
+    .tabla-princ tbody td {
+        /* Behave  like a "row" */
+        border: none;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .tabla-princ tbody td:not(:last-child) {
+
+        border-bottom: 1px solid var(--colorMain);
+    }
+
+    .tabla-princ tr:not(:last-child) {
+        border-bottom: 8px solid var(--background);
+    }
+
+    .tabla-princ tbody tr:hover {
+        background-color: white;
+    }
+    
+
+    td:before {
+        position: absolute;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 300;
+    }
+    .paginateButton {
+        margin-bottom: 8rem;
+    }
+    
+    td:nth-of-type(1):before { content: "Id"; }
+    td:nth-of-type(2):before { content: "Nombre"; }
+    td:nth-of-type(3):before { content: "Apellido"; }
+    td:nth-of-type(4):before { content: "Edad"; }
+    td:nth-of-type(5):before { content: "Dni"; }
+    td:nth-of-type(6):before { content: "Id de celda"; }
+    td:nth-of-type(7):before { content: "Descripción"; }
+    td:nth-of-type(8):before { content: "Historial"; }
+    td:nth-of-type(9):before { content: "Editar"; }
+    td:nth-of-type(10):before { content: "Borrar"; }
+}
+
+/*----------------------------------------------------------
+------------------------------------------------------------
+                    Perfil 
+------------------------------------------------------------
+-----------------------------------------------------------*/
+
+.mainProfile {
+  padding: 5rem 0;
+  
+}
+
+.profileContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+    background-color: var(--white);
+    width: 50%;
+    height: fit-content;
+    border-radius: 4px;
+}
+
+.profileContent h1 {
+    margin-top: 2rem;
+}
+
+.profileList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 2rem 4rem 4rem 4rem;
+}
+
+.profileList div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 48%;
+
+}
+.profileList div:nth-child(odd) {
+    margin-right: 2%;
+}
+
+.profileList div h2 {
+    font-size: 1.3rem;
+    margin: 1rem 0;
+    font-family: 'Roboto';
+    color: var(--blue);
+    text-align: left;
+    width: 50%;
+}
+
+.profileList p {
+    list-style: none;
+    text-transform: capitalize;
+    width: 70%;
+    text-align: left;
+}
+
+.profileButton {
+    background-color: var(--colorMain);
+    font-family: 'Roboto';
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    width: 8rem;
+    height: 2.5rem;
+}
+
+.profileLink {
+    color: var(--white);
+    text-decoration: none;
+}
+
+/*----------------------------------------------------------
+------------------------------------------------------------
+                    Formularios
+------------------------------------------------------------
+-----------------------------------------------------------*/
+
+.registerForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+    background-color: var(--white);
+    width: 50%;
+    height: fit-content;
+    border-radius: 4px;
+}
+
+.registerForm h1 {
+    margin-top: 2rem;
+}
+
+.registerContent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 2rem 4rem 4rem 4rem;
+}
+
+.registerContent div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 48%;
+    margin-top: 1rem;  
+}
+
+.registerContent div:nth-child(odd) {
+    margin-right: 2%;
+}
+
+.registerContent div label {
+    font-size: 1.3rem;
+    margin: 1rem 0;
+    font-family: 'Roboto';
+    color: var(--blue);
+    text-align: left;
+}
+
+.registerContent div button {
+    margin-top: 1rem;
+    padding: 0.5rem;
+}
+
+.registerContent .fileDiv {
+    width: 100%;
+}
+
+.fileDiv input {
+    border: none;
+}
+
+.registerContent .historialButton {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center ;
+}
+
+.historialButton button {
+    margin: 0 2rem;
+}
+
+.registerContent .registerButton{
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.registerButton .addButton {
+    width: 25%;
+    padding: 0.6rem 0;
+}
+
+
+@media only screen 
+and (max-width: 1200px) {
+    .registerForm {
+        width: 80%;
+    }
+    .registerContent {
+        padding: 0 2rem 2rem 2rem;
+    }
+ }
+
+@media only screen 
+and (max-width: 890px) {
+
+    footer {
+        color:black;
+    }
+
+    .registerContent div {
+        width: 100%;
+    }
+
+    .registerForm {
+        margin-bottom: 2rem;
+    }
+ }

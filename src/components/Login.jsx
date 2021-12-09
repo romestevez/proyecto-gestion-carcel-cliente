@@ -2,13 +2,15 @@ import React, {useState} from 'react';
 import axios from 'axios'
 import {withRouter} from 'react-router-dom'
 import Cookies from 'universal-cookie/es6';
+import '../index.css';
+
 
 const cookies = new Cookies();
 
 
 
 const Login = (props) => {
-
+    
     const [data, setData] = useState ({
         nombre: '',
         apellido: '',
@@ -37,12 +39,10 @@ const Login = (props) => {
                     "password": data.password
                 }
             });
-            console.log(response);
-            cookies.set('id',response.data[0].id , { path: '/' });
-            props.setId(response.data[0].id);
-            props.setNombre(response.data[0].nombre);           
-            props.history.push('/');
-
+            cookies.set('id',response.data[1].id , { path: '/' });
+            props.setId(response.data[1].id);
+            props.history.push('/mostrartrabajadores');
+            
         }
         catch(error){
             console.log(error)
@@ -51,33 +51,23 @@ const Login = (props) => {
     }
 
     return (
-        <main>
-            <section>
-                <h2 className="loginTitle">
-                    Iniciar sesión
-                </h2>
+        <main className="loginContent">     
+            <form onSubmit={login} className="formLogin">
 
-                <section className="logBox">
-                    <div className="iniciaSesion">                            
-                        <form onSubmit={login}>
-                            <div className="loginContent">
-                                <h3>Bienvenido</h3>
-                                <input className="inputLogin" type="text" name="email" placeholder="Email" required
-                                    onChange={setDataValue} value={data.email}/>
-
-                                <input className="inputLogin" type="password" name="password" placeholder="Password" required
-                                    onChange={setDataValue} value={data.password}/>
-
-                                <div className="button-group">
-                                    <button className="button" type="submit">Iniciar sesión</button>
-                                </div>
-                            </div>
-                        </form>                       
-                    </div> 
-                </section>
-            </section>
-        </main>
-        
+                    <h1 >Bienvenido</h1> 
+                    <div className="input email">
+                        <input className="inputLogin" type="text" name="email" placeholder="Email" required
+                        onChange={setDataValue} value={data.email}/>
+                    </div>
+                    <div className="input password">
+                        <input className="inputLogin" type="password" name="password" placeholder="Contaseña" required
+                        onChange={setDataValue} value={data.password}/>
+                    </div>
+                    <div className="button-group">
+                        <button className="buttonLogin" type="submit">Iniciar sesión</button>
+                    </div>
+            </form>                       
+        </main> 
     );    
 }
 

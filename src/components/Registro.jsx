@@ -41,7 +41,7 @@ const Registro = (props) => {
     }
 
     const registro = async () => {
-        
+        // Hacemos las llamadas al backend de forma asyncrona para no seguir hasta obtener respuesta, para ello usamos la libreria axios.
         try { 
             const response = await axios({
                 method: 'post',
@@ -62,44 +62,59 @@ const Registro = (props) => {
     
     return (
         <main>
-            <form onSubmit={procesarDatos}>
+            <form className="registerForm" onSubmit={procesarDatos}>
+                
+                <h1>Registro de empleado</h1>
                 <div className="registerContent">
-                    <h3>Registro Empleado</h3>
-                    <input className="inputLogin" type="text" name="nombre" placeholder="Nombre" required
-                        onChange={setDataValue}
-                    />
-                    <input className="inputLogin" type="text" name="apellido" placeholder="Apellido" required
-                        onChange={setDataValue}
-                    />
-                    <input className="inputLogin" type="text" name="n_tlf" placeholder="Número de teléfono" required
-                        onChange={setDataValue}
-                    />
-                    <input className="inputLogin" type="number" name="edad" placeholder="Edad" required
-                        onChange={setDataValue}
-                    />
-                    <input className="inputLogin" type="text" name="dni" placeholder="Dni" required
-                        onChange={setDataValue}
-                    />
-                    <input className="inputLogin" type="text" name="email" placeholder="Email" required
-                        onChange={setDataValue}
-                    />
-                    <input className="inputLogin" type="password" name="password" placeholder="Password" required
-                        onChange={setDataValue}
-                    />
-                    <select required name="rol" className="rol" onChange={setDataValue}  >
-                        <option name="">Elegir Rol</option>
-                        <option name="administrador">Administrador</option>
-                        <option name="guardia">Guardia</option>
-                        <option name="alcaide">Alcaide</option>
-                        <option name="enfermero">Enfermero</option>
-                    </select>
-                    {userErr === ""? (""):(<p className="rojo">{userErr}</p>)}
-
-                    <div className="button-group">
-                        <button className="button" type="submit">Registrar</button>
+                    <div>
+                        <label>Nombre</label>
+                        <input className="inputLogin" type="text" name="nombre" placeholder="Nombre" required onChange={setDataValue}/>
+                    </div>
+                    
+                    <div>
+                        <label>Apellido</label>
+                        <input className="inputLogin" type="text" name="apellido" placeholder="Apellido" required onChange={setDataValue}/>
                     </div>
 
-                    
+                    <div>
+                        <label>Nº de teléfono</label>
+                        <input className="inputLogin" type="text" name="n_tlf" placeholder="Número de teléfono" required onChange={setDataValue}/>
+                    </div>
+
+                    <div>
+                        <label>Edad</label>
+                        <input className="inputLogin" type="number" name="edad" placeholder="Edad" required onChange={setDataValue}/>
+                    </div>
+
+                    <div>
+                        <label>Dni</label>
+                        <input className="inputLogin" type="text" name="dni" placeholder="Dni" required onChange={setDataValue}/>
+                    </div>
+
+                    <div>
+                        <label>Email</label>
+                        <input className="inputLogin" type="text" name="email" placeholder="Email" required onChange={setDataValue}/>
+                    </div>
+
+                    <div>
+                        <label>Contraseña</label>
+                        <input className="inputLogin" type="password" name="password" placeholder="Password" required onChange={setDataValue} />
+                    </div>
+                    <div>
+                        <label>Rol</label>
+                        <select required name="rol" className="rol" onChange={setDataValue}  >
+                            <option name="">Elegir Rol</option>
+                            <option name="administrador">Administrador</option>
+                            <option name="guardia">Guardia</option>
+                            <option name="alcaide">Alcaide</option>
+                            <option name="enfermero">Enfermero</option>
+                        </select>
+                    </div>
+
+                    <div className="registerButton">
+                        <button className="addButton" type="submit">Registrar</button>
+                    </div>
+
                 </div>
             </form>
         </main>

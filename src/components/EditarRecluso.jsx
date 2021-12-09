@@ -5,15 +5,17 @@ import { useEffect } from 'react';
 
 const EditarRecluso = (props) => {
 
+    const [foto, setFoto] = useState ([]);
     const [data, setData] = useState({
         nombre: '',
         apellido: '',
         dni: '',
-        n_tlf: '',
+        descripcion: '',
         edad: '',
-        email: '',
+        id_celda: '',
     })
     
+    console.log(props.id);
     useEffect(() => {
         obtenerDatos()
     },[])
@@ -25,12 +27,12 @@ const EditarRecluso = (props) => {
     const obtenerDatos = async () => {
         
         try { 
+            
             const response = await axios({
                 method: 'get',
-                url: `http://localhost:80/api/user/${props.match.params.id}`,
+                url: `http://localhost:80/api/recluso/${props.match.params.id}`,
                 withCredentials: true,
             });
-            
             setData(response.data);
         } catch (error) {
             alert("Ha ocurrido algo...")
@@ -41,11 +43,12 @@ const EditarRecluso = (props) => {
         try { 
             const response = await axios({
                 method: 'put',
-                url: `http://localhost:80/api/update/user/${props.match.params.id}`,
+                url: `http://localhost:80/api/update/recluso/${props.match.params.id}`,
                 withCredentials: true,
                 data: data
             });
-            props.history.push('/mostrartrabajadores');
+            props.history.push('/mostrarreclusos');
+            // console.log(response.data);
         } catch(error){
 
         }
@@ -54,9 +57,8 @@ const EditarRecluso = (props) => {
         <main>
             <div className= "registerForm">                              
                 <form onSubmit={update}>
-                    <h1>Perfil de {data["nombre"]}</h1>
+                    <h1>{data["nombre"]}</h1>
                     <div className="registerContent">
-                        
                         <div>
                             <label>Nombre</label>
                             <input className="inputLogin" type="text" name="nombre" placeholder="Nombre" required value={data["nombre"]} onChange={setDataValue}/>
@@ -73,8 +75,8 @@ const EditarRecluso = (props) => {
                         </div>
 
                         <div>
-                            <label>Email</label>
-                            <input className="inputLogin" type="text" name="email"  placeholder="Email" required value={data["email"]} onChange={setDataValue}/>
+                            <label>Descripcion</label>
+                            <textarea className="inputLogin" type="textarea" name="descripcion"  placeholder="Descripcion" required value={data["descripcion"]} onChange={setDataValue}/>
                         </div>
 
                         <div>
@@ -83,16 +85,17 @@ const EditarRecluso = (props) => {
                         </div>
 
                         <div>
-                            <label>Nº de teléfono</label>
-                            <input className="inputLogin" type="text" name="n_tlf" placeholder="N_tlf" value={data["n_tlf"]} onChange={setDataValue}/>
+                            <label>Id celda</label>
+                            <input className="inputLogin" type="text" name="id_celda" placeholder="Id_celda" value={data["id_celda"]} onChange={setDataValue}/>
                         </div>
 
                         <div className="registerButton">
                             <button className="addButton" type="submit">Editar</button>
                         </div>
+
                     </div>
                 </form>
-            </div>       
+            </div> 
     </main>
     );
     

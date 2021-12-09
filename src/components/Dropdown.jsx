@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { MenuItems } from './MenuItems';
-
+import {withRouter} from 'react-router-dom'
+import Cookies from 'universal-cookie/es6';
 import { Link } from 'react-router-dom';
 
-const Dropdown = () => {
+const cookies = new Cookies();
+const Dropdown = (props) => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
 
@@ -13,22 +14,21 @@ const Dropdown = () => {
         onClick={handleClick}
         className='dropdown-menu'
       >
-        {MenuItems.map((item, index) => {
-          return (
-            <li key={index} className='dropdown-li'>
-              <Link
-                className={item.cName}
-                to={item.path}
-                onClick={() => setClick(false)}
-              >
-                {item.title}
-              </Link>
-            </li>
-          );
-        })}
+        <li className='dropdown-li'>
+          <Link
+            className='dropdown-link'
+            to= '/perfil'
+            onClick={() => setClick(false)}
+          >
+            Mi perfil
+          </Link>
+        </li>
+        <li className='dropdown-li'>
+        <Link to='/logout' className="menu-item" >Cerrar sesión</Link>
+        </li>
       </ul>
     </>
   );
 }
 
-export default Dropdown;
+export default withRouter(Dropdown)
