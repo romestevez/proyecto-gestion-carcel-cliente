@@ -364,27 +364,6 @@ footer p {
 }
 
 
-/*
-	Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
-	*/
-@media only screen 
-and (max-width: 1080px) { 
-    .flexTables {
-        width: 90%;
-    }
-}
-
-@media only screen 
-and (max-width: 890px) {
-
-    .flexTables {
-        width: 75%;
-    }
-    /* Force table to not be like tables anymore */
-    table, thead, tbody, th, td, tr {
-        display: block;
-    }
-
     /* Hide table headers (but not display: none;, for accessibility) */
     thead tr {
         position: absolute;
@@ -451,7 +430,7 @@ and (max-width: 890px) {
     td:nth-of-type(8):before { content: "Historial"; }
     td:nth-of-type(9):before { content: "Editar"; }
     td:nth-of-type(10):before { content: "Borrar"; }
-}
+
 
 /*----------------------------------------------------------
 ------------------------------------------------------------
@@ -612,6 +591,17 @@ and (max-width: 890px) {
     padding: 0.6rem 0;
 }
 
+/**********************************************************************
+*********************           MEDIA         *************************
+*********************                         *************************
+***********************************************************************/
+
+@media only screen
+and (max-width: 1500px){
+    .formLogin {
+        width: 30%;
+    }
+}
 
 @media only screen 
 and (max-width: 1200px) {
@@ -621,10 +611,29 @@ and (max-width: 1200px) {
     .registerContent {
         padding: 0 2rem 2rem 2rem;
     }
- }
+}
+
+@media only screen 
+and (max-width: 1080px) { 
+    .flexTables {
+        width: 90%;
+    }
+    .formLogin {
+        width: 40%;
+        padding: 3rem;
+    }
+}
 
 @media only screen 
 and (max-width: 890px) {
+
+    .flexTables {
+        width: 75%;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
 
     footer {
         color:black;
@@ -637,4 +646,13 @@ and (max-width: 890px) {
     .registerForm {
         margin-bottom: 2rem;
     }
- }
+}
+
+@media only screen 
+and (max-width: 760px) { 
+    
+    .formLogin {
+        width: 60%;
+        padding: 2rem;
+    }
+}
